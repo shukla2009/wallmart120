@@ -1,6 +1,7 @@
 var INV = require('./inventory.model');
 var PROD = require('./product.model');
 var PUR_ORDER = require('./pur_order.model');
+var CAT = require('./category.model');
 var startDate = 1356978600000;
 exports.generate = function (req, response) {
     var tempDate = 1356978600000;
@@ -70,3 +71,39 @@ exports.generate = function (req, response) {
         });
     }, 10);
 }
+
+exports.indexProduct = function (req, res) {
+    PROD.find().exec(function (err, things) {
+        if (err) {
+            return handleError(res, err);
+        }
+        return res.json(200, things);
+    });
+};
+
+exports.indexInv = function (req, res) {
+    INV.find().exec(function (err, things) {
+        if (err) {
+            return handleError(res, err);
+        }
+        return res.json(200, things);
+    });
+};
+
+exports.indexCat = function (req, res) {
+    CAT.find().exec(function (err, things) {
+        if (err) {
+            return handleError(res, err);
+        }
+        return res.json(200, things);
+    });
+};
+
+exports.indexPO = function (req, res) {
+    PUR_ORDER.find().exec(function (err, things) {
+        if (err) {
+            return handleError(res, err);
+        }
+        return res.json(200, things);
+    });
+};

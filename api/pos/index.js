@@ -5,6 +5,11 @@ var controller = require('./pos.controller');
 
 var router = express.Router();
 
-router.get('/', controller.generate);
+router.get('/pos', controller.generate);
+router.get('/categories', controller.indexCat);
+router.get('/products', controller.indexProduct);
+router.get('/inventories', controller.indexInv);
+router.get('/purchaseorders', controller.indexPO);
+
 
 module.exports = router;
