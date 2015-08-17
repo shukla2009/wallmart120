@@ -16,8 +16,7 @@ require('./config/express')(app);
 require('./routes')(app);
 server.on('connection', function (socket) {
     socket.on('close', function () {
-        var id = socket.CurrentIntId
-        clearInterval(id);
+        socket.isActive =false;
     });
 });
 // Start server

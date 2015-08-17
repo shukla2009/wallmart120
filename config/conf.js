@@ -12,5 +12,9 @@ module.exports = {
                 safe: true
             }
         }
+    },
+    kafka: {
+        connectionString: process.env.CONSTRING || 'localhost:2181',
+        clientId:process.env.CLIENTID||'kafka-node-client'
     }
 }
